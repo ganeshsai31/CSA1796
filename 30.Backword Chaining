@@ -1,0 +1,19 @@
+% Define the knowledge base
+animal(hen).
+animal(rat).
+animal(owl).
+mammal(dog).
+mammal(cat).
+mammal(human).
+
+% Define a rule to determine if an animal is a mammal
+is_mammal(X) :- mammal(X).
+
+% Define a rule to determine if an animal is not a mammal
+not_mammal(X) :- animal(X), \+ is_mammal(X).
+
+% Goal: Check if an animal is a mammal
+check_mammal(X) :- is_mammal(X), write(X), write(' is a mammal.'), nl.
+
+% Goal: Check if an animal is not a mammal
+check_not_mammal(X) :- not_mammal(X), write(X), write(' is not a mammal.'), nl.
